@@ -20,36 +20,33 @@ function dealCards(){
 	}
 	playButton.innerHTML = '<button onclick="reloadPage()">Reload Page</button>';
 }
-/*
-function dealCards(){
+
+function dealTestCards(){
+	let testCardNumber = 0
+
 	for (var i = 0; i < 2; i++) {
-		pickCards(".player-one");		
+		pickTestCards(".player-one", testCardNumber);
+		testCardNumber++;
 	}
 	for (var i = 0; i < 2; i++) {
-		pickCards(".player-two");
-	}	
-	playButton.innerHTML = '<button onclick="dealFlop()">Deal flop</button>';
-}
-function dealFlop(){
+		pickTestCards(".player-two", testCardNumber);
+		testCardNumber++;
+	}
 	for (var i = 0; i < 3; i++) {
-		pickCards(".dealt-flop");
-	}	
-	playButton.innerHTML = '<button onclick="dealRiver()">Deal river</button>';
-}
-function dealRiver(){
-	for (var i = 0; i < 1; i++) {
-		pickCards(".dealt-river");
+		pickTestCards(".dealt-flop", testCardNumber);
+		testCardNumber++;
 	}
-	playButton.innerHTML = '<button onclick="dealTurn()">Deal turn</button>';
-}
-function dealTurn(){
 	for (var i = 0; i < 1; i++) {
-		pickCards(".dealt-turn");
+		pickTestCards(".dealt-river", testCardNumber);
+		testCardNumber++;
 	}
-	writeCard()	
+	for (var i = 0; i < 1; i++) {
+		pickTestCards(".dealt-turn", testCardNumber);
+		testCardNumber++;
+	}
 	playButton.innerHTML = '<button onclick="reloadPage()">Reload Page</button>';
 }
-*/
+
 function writeCard(){
 	for (var i = 0; i < cards.length; i++) {
 		//console.log(cards[i]);

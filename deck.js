@@ -1,19 +1,15 @@
 let cards = [];
 let cardNumber;
-
 let usedNumbers = []
 
 function randomCards(){
 	let newNumber = Math.floor(Math.random()*Math.floor(52));
-
 	while (usedNumbers.indexOf(newNumber) !== -1) {
 		newNumber = Math.floor(Math.random()*Math.floor(52));
 	}
-
 	cardNumber = newNumber
 	usedNumbers.push(newNumber)
 }
-
 
 function pickCards(part){
 	let card;
@@ -234,3 +230,64 @@ function pickCards(part){
 	document.querySelector(part).appendChild(para);			
 	cards.push(card);	
 }
+// tutaj ok
+
+// to patrz
+function randomTestCards(){
+	let newNumber;
+	for (var i = 0; i < 9; i++) {
+		newNumber = i;
+		console.log('Wykonuje randomTestCards(). NewNumber:' + newNumber)
+	}
+	cardNumber = newNumber
+}
+
+function pickTestCards(part, testCardNumber){
+	let card;
+
+	switch(testCardNumber){
+			case 0:
+			card = "7 of Hearts"; //Player one card 1
+			i++;
+			break;
+			case 1:
+			card = "3 of Hearts"; //Player one card 2
+			i++;
+			break;
+			case 2:
+			card = "4 of Hearts"; //Player two card 1
+			i++;
+			break;
+			case 3:
+			card = "5 of Hearts"; //Player two card 2
+			i++;
+			break;
+			case 4:
+			card = "7 of Hearts"; //Flop
+			i++;
+			break;
+			case 5:
+			card = "7 of Hearts"; //Flop
+			i++;
+			break;
+			case 6:
+			card = "7 of Hearts"; //Flop
+			i++;
+			break;
+			case 7:
+			card = "9 of Hearts"; //Turn
+			i++;
+			break;
+			case 8:
+			card = "10 of Hearts"; //River
+			i++;
+			break;
+	}			
+	var para = document.createElement("P");
+	var t = document.createTextNode(card);
+	para.appendChild(t);
+	document.querySelector(part).appendChild(para);			
+	cards.push(card);
+}
+//
+//
