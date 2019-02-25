@@ -1,304 +1,252 @@
-let cards = [];
-let cardNumber;
-let usedNumbers = []
-
-function randomCards(){
-	let newNumber = Math.floor(Math.random()*Math.floor(52));
-	while (usedNumbers.indexOf(newNumber) !== -1) {
-		newNumber = Math.floor(Math.random()*Math.floor(52));
-	}
-	cardNumber = newNumber
-	usedNumbers.push(newNumber)
-}
-
-function pickCards(part){
+/*
+function pickCards(i,x,part){
+	let playButton = document.querySelector(".button");
 	let card;
-	randomCards();
-	switch(cardNumber){
+	let cardNumber;
+	do{
+		cardNumber = Math.floor(Math.random()*Math.floor(52));
+		switch(cardNumber){
 			case 0:
 			card = "2 of Hearts";
-			i++;
 			break;
 			case 1:
 			card = "3 of Hearts";
-			i++;
 			break;
 			case 2:
 			card = "4 of Hearts";
-			i++;
 			break;
 			case 3:
 			card = "5 of Hearts";
-			i++;
 			break;
 			case 4:
 			card = "6 of Hearts";
-			i++;
 			break;
 			case 5:
 			card = "7 of Hearts";
-			i++;
 			break;
 			case 6:
 			card = "8 of Hearts";
-			i++;
 			break;
 			case 7:
 			card = "9 of Hearts";
-			i++;
 			break;
 			case 8:
 			card = "10 of Hearts";
-			i++;
 			break;
 			case 9:
 			card = "Jack of Hearts";
-			i++;
 			break;
 			case 10:
 			card = "Queen of Hearts";
-			i++;
 			break;
 			case 11:
 			card = "King of Hearts";
-			i++;
 			break;
 			case 12:
 			card = "Ace of Hearts";
-			i++;
 			break;
 			case 13:
 			card = "2 of Spades";
-			i++;
 			break;
 			case 14:
 			card = "3 of Spades";
-			i++;
 			break;
 			case 15:
 			card = "4 of Spades";
-			i++;
 			break;
 			case 16:
 			card = "5 of Spades";
-			i++;
 			break;
 			case 17:
 			card = "6 of Spades";
-			i++;
 			break;
 			case 18:
 			card = "7 of Spades";
-			i++;
 			break;
 			case 19:
 			card = "8 of Spades";
-			i++;
 			break;
 			case 20:
 			card = "9 of Spades";
-			i++;
 			break;
 			case 21:
 			card = "10 of Spades";
-			i++;
 			break;
 			case 22:
 			card = "Jack of Spades";
-			i++;
 			break;
 			case 23:
 			card = "Queen of Spades";
-			i++;
 			break;
 			case 24:
 			card = "King of Spades";
-			i++;
 			break;
 			case 25:
 			card = "Ace of Spades";
-			i++;
 			break;
 			case 26:
 			card = "2 of Clubs";
-			i++;
 			break;
 			case 27:
 			card = "3 of Clubs";
-			i++;
 			break;
 			case 28:
 			card = "4 of Clubs";
-			i++;
 			break;
 			case 29:
 			card = "5 of Clubs";
-			i++;
 			break;
 			case 30:
 			card = "6 of Clubs";
-			i++;
 			break;
 			case 31:
 			card = "7 of Clubs";
-			i++;
 			break;
 			case 32:
 			card = "8 of Clubs";
-			i++;
 			break;
 			case 33:
 			card = "9 of Clubs";
-			i++;
 			break;
 			case 34:
 			card = "10 of Clubs";
-			i++;
 			break;
 			case 35:
 			card = "Jack of Clubs";
-			i++;
 			break;
 			case 36:
 			card = "Queen of Clubs";
-			i++;
 			break;
 			case 37:
 			card = "King of Clubs";
-			i++;
 			break;
 			case 38:
 			card = "Ace of Clubs";
-			i++;
 			break;
 			case 39:
 			card = "2 of Diamonds";
-			i++;
 			break;
 			case 40:
 			card = "3 of Diamonds";
-			i++;
 			break;
 			case 41:
 			card = "4 of Diamonds";
-			i++;
 			break;
 			case 42:
 			card = "5 of Diamonds";
-			i++;
 			break;
 			case 43:
 			card = "6 of Diamonds";
-			i++;
 			break;
 			case 44:
 			card = "7 of Diamonds";
-			i++;
 			break;
 			case 45:
 			card = "8 of Diamonds";
-			i++;
 			break;
 			case 46:
 			card = "9 of Diamonds";
-			i++;
 			break;
 			case 47:
 			card = "10 of Diamonds";
-			i++;
 			break;
 			case 48:
 			card = "Jack of Diamonds";
-			i++;
 			break;
 			case 49:
 			card = "Queen of Diamonds";
-			i++;
 			break;
 			case 50:
 			card = "King of Diamonds";
-			i++;
 			break;
 			case 51:
 			card = "Ace of Diamonds";
-			i++;
 			break;
+		}
+		i++;
+		var para = document.createElement("P");
+		var t = document.createTextNode(card);
+		para.appendChild(t);
+		document.querySelector(part).appendChild(para);			
 	}
-	/*			
-	var para = document.createElement("P");
-	var t = document.createTextNode(card);
-	para.appendChild(t);
-	document.querySelector(part).appendChild(para);			
-	cards.push(card);
-	*/
-	var image = document.createElement("IMG");
-	var imageScr = "img/" + card + ".png";
-	image.setAttribute("src", imageScr);
-	image.setAttribute("height", "100");
-	image.setAttribute("width", "auto");
-	var t = document.createTextNode(card);
-	image.appendChild(t);
-	document.querySelector(part).appendChild(image);			
-	cards.push(card);
+	while(i <= x);
+	console.log(card);
 }
-// tutaj ok
+*/
+//////////////////////////////////
+/*function Deck(suit, number) {
+	this.suit = suit;
+	this.number = number;
+}*/
 
-// to patrz
-function randomTestCards(){
-	let newNumber;
-	for (var i = 0; i < 9; i++) {
-		newNumber = i;
-		console.log('Wykonuje randomTestCards(). NewNumber:' + newNumber)
-	}
-	cardNumber = newNumber
-}
-
-function pickTestCards(part, testCardNumber){
-	let card;
-
-	switch(testCardNumber){
+/*function pickCards(i, x, part){
+	let card = new Deck();
+	let playButton = document.querySelector(".button");
+	do{
+		let chooseRandomSuit = Math.floor(Math.random()* Math.floor(4));
+		let chooseRandomNumber = Math.floor(Math.random()* Math.floor(13));
+		let setCards = document.querySelector(".dealt-cards");
+		switch(chooseRandomSuit){
 			case 0:
-			card = "2 of Hearts"; //Player one card 1
-			i++;
+			Deck.suit = "Hearts";
 			break;
 			case 1:
-			card = "3 of Hearts"; //Player one card 2
-			i++;
+			Deck.suit = "Spades";
 			break;
 			case 2:
-			card = "4 of Hearts"; //Player two card 1
-			i++;
+			Deck.suit = "Clubs";
 			break;
 			case 3:
-			card = "2 of Hearts"; //Player two card 2
-			i++;
+			Deck.suit = "Diamonds";
+			break;
+		}
+		switch(chooseRandomNumber){
+			case 0:
+			Deck.number = "2";
+			break;
+			case 1:
+			Deck.number = "3";
+			break;
+			case 2:
+			Deck.number = "4";
+			break;
+			case 3:
+			Deck.number = "5";
 			break;
 			case 4:
-			card = "4 of Hearts"; //Flop     i
-			i++;
+			Deck.number = "6";
 			break;
 			case 5:
-			card = "5 of Hearts"; //Flop     i+1
-			i++;
+			Deck.number = "7";
 			break;
 			case 6:
-			card = "6 of Hearts"; //Flop     i+2
-			i++;
+			Deck.number = "8";
 			break;
 			case 7:
-			card = "10 of Hearts"; //Turn     i+3
-			i++;
+			Deck.number = "9";
 			break;
 			case 8:
-			card = "7 of Hearts"; //River     i+4
-			i++;
+			Deck.number = "10";
 			break;
-	}			
-	var para = document.createElement("P");
-	var t = document.createTextNode(card);
-	para.appendChild(t);
-	document.querySelector(part).appendChild(para);			
-	cards.push(card);
-}
-//
-//
+			case 9:
+			Deck.number = "Jack";
+			break;
+			case 10:
+			Deck.number = "Queen";
+			break;
+			case 11:
+			Deck.number = "King";
+			break;
+			case 12:
+			Deck.number = "Ace";
+			break;
+		}
+		i++;
+		card = Deck.number + " of " + Deck.suit;
+		var para = document.createElement("P");
+		var t = document.createTextNode(card);
+		para.appendChild(t);
+		document.querySelector(part).appendChild(para);
+	}
+	while(i <= x);
+}*/

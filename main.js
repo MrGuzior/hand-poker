@@ -9,15 +9,15 @@ function dealCards(){
 	for (var i = 0; i < 2; i++) {
 		pickCards(".player-two");
 	}
-	for (var i = 0; i < 3; i++) {
+	for (var i = 0; i < 5; i++) {
 		pickCards(".dealt-flop");
 	}
-	for (var i = 0; i < 1; i++) {
+	/*for (var i = 0; i < 1; i++) {
 		pickCards(".dealt-river");
 	}
 	for (var i = 0; i < 1; i++) {
 		pickCards(".dealt-turn");
-	}
+	}*/
 	playButton.innerHTML = '<button onclick="reloadPage()">Reload Page</button>';
 }
 
@@ -32,18 +32,18 @@ function dealTestCards(){
 		pickTestCards(".player-two", testCardNumber);
 		testCardNumber++;
 	}
-	for (var i = 0; i < 3; i++) {
+	for (var i = 0; i < 5; i++) {
 		pickTestCards(".dealt-flop", testCardNumber);
 		testCardNumber++;
 	}
-	for (var i = 0; i < 1; i++) {
+	/*for (var i = 0; i < 1; i++) {
 		pickTestCards(".dealt-river", testCardNumber);
 		testCardNumber++;
 	}
 	for (var i = 0; i < 1; i++) {
 		pickTestCards(".dealt-turn", testCardNumber);
 		testCardNumber++;
-	}
+	}*/
 	playButton.innerHTML = '<button onclick="reloadPage()">Reload Page</button>';
 }
 

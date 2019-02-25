@@ -1,4 +1,5 @@
 let numberHand = [];
+let cardSuit = [];
 let pocketPair01 = false;
 let pocketPair02 = false;
 let deckPair01 = false;
@@ -17,7 +18,14 @@ let deckTriss03 = false;
 let deckTriss04 = false;
 let doublePair01 = false;
 let doublePair02 = false;
-
+let fullHouse01 = false;
+let fullHouse02 = false;
+let pocketFlush01 = false;
+let pocketFlush02 = false;
+let deckFlush01 = false;
+let deckFlush02 = false;
+let deckFlush03 = false;
+let deckFlush04 = false;
 let cardValue = [];
 function Deck(suit, number){
 	this.suit = suit;
@@ -25,15 +33,18 @@ function Deck(suit, number){
 }
 						//Getting hand value
 function handValue(i){
-	let deck = new Deck();
-	let getOfStartPosition = cards[i].indexOf(" of ");
-	let ofPosition = [getOfStartPosition, getOfStartPosition+4];
-	let suit = cards[i].slice(ofPosition[1]);
-	let number = cards[i].slice(0, ofPosition[0]);
+	var deck = new Deck();
+	var getOfStartPosition = cards[i].indexOf(" of ");
+	var ofPosition = [getOfStartPosition, getOfStartPosition+4];
+	var suit = cards[i].slice(ofPosition[1]);
+	var number = cards[i].slice(0, ofPosition[0]);
 	deck.suit = cards[i].slice(ofPosition[1]);
 	deck.number = cards[i].slice(0, ofPosition[0]);
 	numberHand.push(deck.number);
+	cardSuit.push(deck.suit.toLowerCase());
 	//console.log(deck.number + " of " + deck.suit);
+	//console.log(deck.suit);
+	//console.log(suitHand);
 }
 						//Looping through hand value
 function getHandValue(){
@@ -192,14 +203,124 @@ function checkPocketQuad(){
 		}
 	}		
 }
-
-function checkDeckQuad(){
-	var deckQuadPair01;
-	var deckQuadPair02;
-	for (var i = 4; i < cards.length; i++) {
-		if(cardValue[i] == cardValue[i+1]){
-			deckQuadPair01 = cardValue[i];
-			deckQuadPair01 = cardValue[i+1];
+						//Checking for quad with deck triss
+function checkDeckQuad(){						
+	for (var i = 4; i < cards.length; i++) {//Matching with first card player 1
+		if (cardValue[0] == cardValue[i]) {
+			if (cardValue[i] == cardValue[i+1]) {
+				if (cardValue[i+1] == cardValue[i+2]) {
+					deckQuad01 = true;
+					console.log(deckQuad01 + " deck quad player 1 card 1");
+				}
+				else if (cardValue[i+1] == cardValue[i+3]) {
+					deckQuad01 = true;
+					console.log(deckQuad01 + " deck quad player 1 card 1");
+				}
+				else if (cardValue[i+1] == cardValue[i+4]) {
+					deckQuad01 = true;
+					console.log(deckQuad01 + " deck quad player 1 card 1");
+				}				
+			}
+			else if (cardValue[i] == cardValue[i+2]) {
+				if (cardValue[i+2] == cardValue[i+3]) {
+					deckQuad01 = true;
+					console.log(deckQuad01 + " deck quad player 1 card 1");
+				}
+				else if (cardValue[i+2] == cardValue[i+4]) {
+					deckQuad01 = true;
+					console.log(deckQuad01 + " deck quad player 1 card 1");
+				}
+			}
+			i = cards.length;
+		}
+	}
+							//Matching with second card player 1
+	for (var i = 4; i < cards.length; i++) {	
+		if (cardValue[1] == cardValue[i]) {
+			if (cardValue[i] == cardValue[i+1]) {
+				if (cardValue[i+1] == cardValue[i+2]) {
+					deckQuad01 = true;
+					console.log(deckQuad01 + " deck quad player 1 card 2");
+				}
+				else if (cardValue[i+1] == cardValue[i+3]) {
+					deckQuad01 = true;
+					console.log(deckQuad01 + " deck quad player 1 card 2");
+				}
+				else if (cardValue[i+1] == cardValue[i+4]) {
+					deckQuad01 = true;
+					console.log(deckQuad01 + " deck quad player 1 card 2");
+				}				
+			}
+			else if (cardValue[i] == cardValue[i+2]) {
+				if (cardValue[i+2] == cardValue[i+3]) {
+					deckQuad01 = true;
+					console.log(deckQuad01 + " deck quad player 1 card 2");
+				}
+				else if (cardValue[i+2] == cardValue[i+4]) {
+					deckQuad01 = true;
+					console.log(deckQuad01 + " deck quad player 1 card 2");
+				}
+			}
+			i = cards.length;
+		}
+	}
+							//Matching with first card player 2
+	for (var i = 4; i < cards.length; i++) {	
+		if (cardValue[2] == cardValue[i]) {
+			if (cardValue[i] == cardValue[i+1]) {
+				if (cardValue[i+1] == cardValue[i+2]) {
+					deckQuad02 = true;
+					console.log(deckQuad02 + " deck quad player 2 card 1");
+				}
+				else if (cardValue[i+1] == cardValue[i+3]) {
+					deckQuad02 = true;
+					console.log(deckQuad02 + " deck quad player 2 card 1");
+				}
+				else if (cardValue[i+1] == cardValue[i+4]) {
+					deckQuad02 = true;
+					console.log(deckQuad02 + " deck quad player 2 card 1");
+				}				
+			}
+			else if (cardValue[i] == cardValue[i+2]) {
+				if (cardValue[i+2] == cardValue[i+3]) {
+					deckQuad02 = true;
+					console.log(deckQuad02 + " deck quad player 2 card 1");
+				}
+				else if (cardValue[i+2] == cardValue[i+4]) {
+					deckQuad02 = true;
+					console.log(deckQuad02 + " deck quad player 2 card 1");
+				}
+			}
+			i = cards.length;
+		}
+	}
+							//Matching with second card player 2
+	for (var i = 4; i < cards.length; i++) {	
+		if (cardValue[3] == cardValue[i]) {
+			if (cardValue[i] == cardValue[i+1]) {
+				if (cardValue[i+1] == cardValue[i+2]) {
+					deckQuad02 = true;
+					console.log(deckQuad02 + " deck quad player 2 card 2");
+				}
+				else if (cardValue[i+1] == cardValue[i+3]) {
+					deckQuad02 = true;
+					console.log(deckQuad02 + " deck quad player 2 card 2");
+				}
+				else if (cardValue[i+1] == cardValue[i+4]) {
+					deckQuad02 = true;
+					console.log(deckQuad02 + " deck quad player 2 card 2");
+				}				
+			}
+			else if (cardValue[i] == cardValue[i+2]) {
+				if (cardValue[i+2] == cardValue[i+3]) {
+					deckQuad02 = true;
+					console.log(deckQuad02 + " deck quad player 2 card 2");
+				}
+				else if (cardValue[i+2] == cardValue[i+4]) {
+					deckQuad02 = true;
+					console.log(deckQuad02 + " deck quad player 2 card 2");
+				}
+			}
 			i = cards.length;
 		}
 	}
@@ -212,6 +333,8 @@ function checkDeckTriss(){
 	var trissCard04 = cardValue[3];
 	var deckTrissCard01;
 	var deckTrissCard02;
+	var deckTrissCard03;
+	var deckTrissCard04;
 	for (var i = 4; i < cards.length; i++) {
 		if (cardValue[i] == cardValue[i+1]) {
 			deckTrissCard01 = cardValue[i];
@@ -264,6 +387,151 @@ function checkDoublePair(){
 		console.log(doublePair02 + " double pair Player 2");
 	}
 }
+						//Checking for full house
+function checkFullHouse(){
+	if (deckPair01 == true && deckTriss02 == true) {
+		fullHouse01 = true;
+		console.log(fullHouse01 + " full house Player 1 1");
+	}
+	else if (deckTriss01 == true && deckPair02 == true) {
+		fullHouse01 = true;
+		console.log(fullHouse01 + " full house Player 1 2");
+	}
+
+	if (deckPair03 == true && deckTriss04 == true) {
+		fullHouse02 = true;
+		console.log(fullHouse02 + " full house Player 2 1");
+	}
+	else if (deckTriss03 == true && deckPair04 == true) {
+		fullHouse02 = true;
+		console.log(fullHouse02 + " full house Player 2 2");
+	}
+}
+						//Checking for pocket flush
+function checkPocketFlush(){
+	if (cardSuit[0] == cardSuit[1]) { // Player 1 pocket flush
+		for (var i = 4; i < cards.length; i++) {
+			if (cardSuit[0] == cardSuit[i] && cardSuit[0] == cardSuit[i+1] &&
+				cardSuit[0] == cardSuit[i+2]) {
+				pocketFlush01 = true;
+				i = cards.length;
+				console.log(pocketFlush01 + " pocket flush Player 1");
+			}
+			else if (cardSuit[0] == cardSuit[i] && cardSuit[0] == cardSuit[i+1] &&
+				cardSuit[0] == cardSuit[i+3]) {
+				pocketFlush01 = true;
+				i = cards.length;
+				console.log(pocketFlush01 + " pocket flush Player 1");
+			}
+			else if (cardSuit[0] == cardSuit[i] && cardSuit[0] == cardSuit[i+1] &&
+				cardSuit[0] == cardSuit[i+4]) {
+				pocketFlush01 = true;
+				i = cards.length;
+				console.log(pocketFlush01 + " pocket flush Player 1");
+			}
+			else if (cardSuit[0] == cardSuit[i] && cardSuit[0] == cardSuit[i+2] &&
+				cardSuit[0] == cardSuit[i+3]) {
+				pocketFlush01 = true;
+				i = cards.length;
+				console.log(pocketFlush01 + " pocket flush Player 1");
+			}
+			else if (cardSuit[0] == cardSuit[i] && cardSuit[0] == cardSuit[i+2] &&
+				cardSuit[0] == cardSuit[i+4]) {
+				pocketFlush01 = true;
+				i = cards.length;
+				console.log(pocketFlush01 + " pocket flush Player 1");
+			}
+			else if (cardSuit[0] == cardSuit[i] && cardSuit[0] == cardSuit[i+3] &&
+				cardSuit[0] == cardSuit[i+4]) {
+				pocketFlush01 = true;
+				i = cards.length;
+				console.log(pocketFlush01 + " pocket flush Player 1");
+			}
+		}
+	}
+	if (cardSuit[2] == cardSuit[3]) { // Player 2 pocket flush
+		for (var i = 4; i < cards.length; i++) {
+			if (cardSuit[2] == cardSuit[i] && cardSuit[2] == cardSuit[i+1] &&
+				cardSuit[2] == cardSuit[i+2]) {
+				pocketFlush02 = true;
+				i = cards.length;
+				console.log(pocketFlush02 + " pocket flush Player 2");
+			}
+			else if (cardSuit[2] == cardSuit[i] && cardSuit[2] == cardSuit[i+1] &&
+				cardSuit[2] == cardSuit[i+3]) {
+				pocketFlush02 = true;
+				i = cards.length;
+				console.log(pocketFlush02 + " pocket flush Player 2");
+			}
+			else if (cardSuit[2] == cardSuit[i] && cardSuit[2] == cardSuit[i+1] &&
+				cardSuit[2] == cardSuit[i+4]) {
+				pocketFlush02 = true;
+				i = cards.length;
+				console.log(pocketFlush02 + " pocket flush Player 2");
+			}
+			else if (cardSuit[2] == cardSuit[i] && cardSuit[2] == cardSuit[i+2] &&
+				cardSuit[2] == cardSuit[i+3]) {
+				pocketFlush02 = true;
+				i = cards.length;
+				console.log(pocketFlush02 + " pocket flush Player 2");
+			}
+			else if (cardSuit[2] == cardSuit[i] && cardSuit[2] == cardSuit[i+2] &&
+				cardSuit[2] == cardSuit[i+4]) {
+				pocketFlush02 = true;
+				i = cards.length;
+				console.log(pocketFlush02 + " pocket flush Player 2");
+			}
+			else if (cardSuit[2] == cardSuit[i] && cardSuit[2] == cardSuit[i+3] &&
+				cardSuit[2] == cardSuit[i+4]) {
+				pocketFlush02 = true;
+				i = cards.length;
+				console.log(pocketFlush02 + " pocket flush Player 2");
+			}
+		}
+	}
+}
+						//Checking for deck flush
+function checkDeckFlush(){
+	for (var i = 4; i < cards.length; i++) {
+		if (cardSuit[0] == cardSuit[i] && cardSuit[0] == cardSuit[i+1] && 
+			cardSuit[0] == cardSuit[i+2] && cardSuit[0] == cardSuit[i+3]) {
+			deckFlush01 = true
+			i = cards.length;
+			console.log(deckFlush01 + " deck flush Player 1 card 1");
+		}
+		else if (cardSuit[1] == cardSuit[i] && cardSuit[1] == cardSuit[i+1] && 
+			cardSuit[1] == cardSuit[i+2] && cardSuit[1] == cardSuit[i+3]) {
+			deckFlush02 = true
+			i = cards.length;
+			console.log(deckFlush02 + " deck flush Player 1 card 2");
+		}
+	}
+	for (var i = 4; i < cards.length; i++) {
+		if (cardSuit[2] == cardSuit[i] && cardSuit[2] == cardSuit[i+1] && 
+			cardSuit[2] == cardSuit[i+2] && cardSuit[2] == cardSuit[i+3]) {
+			deckFlush03 = true
+			i = cards.length;
+			console.log(deckFlush03 + " deck flush Player 2 card 1");
+		}
+		else if (cardSuit[3] == cardSuit[i] && cardSuit[3] == cardSuit[i+1] && 
+			cardSuit[3] == cardSuit[i+2] && cardSuit[3] == cardSuit[i+3]) {
+			deckFlush04 = true
+			i = cards.length;
+			console.log(deckFlush04 + " deck flush Player 2 card 2");
+		}
+	}
+}
+						//Checking for pocket streight
+function checkPocketStreight(){
+	var streight = [cardValue[0],cardValue[1],cardValue[4],cardValue[5],
+					cardValue[6],cardValue[7],cardValue[8]];
+	streight = streight.sort(function(a, b){return a - b});
+	console.log(streight);
+		if (streight[0] == streight[1]-1 && streight[1] == streight[2]-1 &&
+			streight[2] == streight[3]-1 && streight[3] == streight[4]-1) {
+			console.log("Yea");
+		}
+}
 						//Activation function
 function testFunction(){
 	getHandValue();
@@ -275,4 +543,8 @@ function testFunction(){
 	checkDeckTriss();
 	checkDoublePair();
 	checkDeckQuad();
+	checkFullHouse();
+	checkPocketFlush();
+	checkDeckFlush();
+	checkPocketStreight();
 }

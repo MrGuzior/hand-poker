@@ -5,20 +5,23 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<h3>Hand Poker</h3>
-	<div class="button"><button onclick="dealCards(),testFunction()">Deal the cards</button></div>
-	<p>************************First hand************************</p>
-	<div class="player-one"></div>
-	<p>************************Second hand************************</p>
-	<div class="player-two"></div>
-	<p>************************Flop************************</p>
-	<div class="dealt-flop"></div>
-	<p>************************River************************</p>
-	<div class="dealt-river"></div>
-	<p>************************Turn************************</p>
-	<div class="dealt-turn"></div>
-	<button onclick="dealTestCards(),testFunction()">TEST</button>
+	<div id="top"></div>
+	<div class="main-conatiner">
+		<h3>Hand Poker</h3>
+		<div class="button"><button onclick="dealCards(),testFunction()">Deal the cards</button></div>
+		<p>************************First hand************************</p>
+		<div class="player-one"></div>
+		<p>************************Second hand************************</p>
+		<div class="player-two"></div>
+		<p>************************Flop************************</p>
+		<div class="dealt-flop"></div>
+		<!--<p>************************River************************</p>
+		<div class="dealt-river"></div>
+		<p>************************Turn************************</p>
+		<div class="dealt-turn"></div>-->
 
+	</div>
+	<button onclick="dealTestCards(),testFunction()">TEST</button>
 </body>
 	<script src="main.js"></script>
 	<script src="deck.js"></script>
